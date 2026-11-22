@@ -192,3 +192,20 @@ print(f"Total current with self-discharge: {I_total_self:.3f} A")
 
 print("\nCharging current at the same power:")
 print(f"{I_charge_max:.3f} A")
+
+# ==========================================
+# 11. C-RATE COMPARISON
+# ==========================================
+
+# Reference current at 1C
+I_1C = Q0_Ah
+
+# Calculate C-rates
+C_rate_discharge = I_discharge_max / I_1C
+C_rate_charge = I_charge_max / I_1C
+
+# Display results
+print("\nC-rate comparison:")
+print(f"Reference current at 1C: {I_1C:.3f} A")
+print(f"Discharge C-rate: {C_rate_discharge:.3f} C")
+print(f"Charge C-rate: {C_rate_charge:.3f} C")
