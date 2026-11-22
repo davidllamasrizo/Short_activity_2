@@ -68,6 +68,5 @@ E_without_self = discharge_energy(P_test, Rl_no_self)
 E_with_self = discharge_energy(P_test, Rl_self)
 
 print("Discharge energy at 10 W:")
-print("Without self-discharge:", E_without_self, "Wh")
-print("With self-discharge:", E_with_self, "Wh")
-
+print(f"Without self-discharge: {E_without_self:.3f} Wh")
+print(f"With self-discharge: {E_with_self:.3f} Wh")
