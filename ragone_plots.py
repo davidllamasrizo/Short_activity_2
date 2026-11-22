@@ -161,3 +161,36 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+
+# ==========================================
+# 10. MAXIMUM POWER AND CURRENT
+# ==========================================
+
+# Maximum power
+P_max = U0**2 / (4 * R0)
+
+# Discharge current at maximum power
+I_discharge_max = (U0 / (2 * R0)
+                   - np.sqrt(U0**2 / (4 * R0**2)
+                   - P_max / R0))
+
+# Total battery current during discharge, including self-discharge
+I_total_no_self = I_discharge_max + U0 / Rl_no_self
+I_total_self = I_discharge_max + U0 / Rl_self
+
+# Charging current at the same power
+I_charge_max = (-U0 / (2 * R0)
+                + np.sqrt(U0**2 / (4 * R0**2)
+                + P_max / R0))
+
+# Display results
+print("\nMaximum power:")
+print(f"{P_max:.3f} W")
+
+print("\nDischarge current at maximum power:")
+print(f"Load current: {I_discharge_max:.3f} A")
+print(f"Total current without self-discharge: {I_total_no_self:.3f} A")
+print(f"Total current with self-discharge: {I_total_self:.3f} A")
+
+print("\nCharging current at the same power:")
+print(f"{I_charge_max:.3f} A")
