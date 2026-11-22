@@ -170,9 +170,7 @@ plt.show()
 P_max = U0**2 / (4 * R0)
 
 # Discharge current at maximum power
-I_discharge_max = (U0 / (2 * R0)
-                   - np.sqrt(U0**2 / (4 * R0**2)
-                   - P_max / R0))
+I_discharge_max = U0 / (2 * R0)
 
 # Total battery current during discharge, including self-discharge
 I_total_no_self = I_discharge_max + U0 / Rl_no_self
