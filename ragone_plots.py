@@ -59,14 +59,54 @@ def discharge_energy(P, Rl):
 
     return E_load_Wh
 
+# ==========================================
+# 4. DISCHARGE RAGONE PLOT - DATA
+# ==========================================
 
-# Test of the discharge function
+# Generate power values (W)
+P_values = np.linspace(0.01, P_max, 500)
 
-P_test = 10  # Test power (W)
+# Calculate discharge energy without self-discharge
+E_without_self = discharge_energy(P_values, Rl_no_self)
 
-E_without_self = discharge_energy(P_test, Rl_no_self)
-E_with_self = discharge_energy(P_test, Rl_self)
+# Calculate discharge energy with self-discharge
+E_with_self = discharge_energy(P_values, Rl_self)
 
-print("Discharge energy at 10 W:")
-print(f"Without self-discharge: {E_without_self:.3f} Wh")
-print(f"With self-discharge: {E_with_self:.3f} Wh")
+# ==========================================
+# 5. NORMALIZATION
+# ==========================================
+
+# Normalize power
+P_pu = P_values / P_max
+
+# Normalize discharge energy
+E_without_self_pu = E_without_self / E_nominal_Wh
+E_with_self_pu = E_with_self / E_nominal_Wh
+
+# ==========================================
+# 6. DISCHARGE RAGONE PLOT
+# ==========================================
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(8, 6))
+
+# Plot without self-discharge
+plt.loglog(P_pu, E_without_self_pu,
+           color='blue', label='Without self-discharge')
+
+# Plot with self-discharge
+plt.loglog(P_pu, E_with_self_pu,
+           color='red', label='With self-discharge')
+
+# Labels and title
+plt.xlabel('Normalized Power (p.u.)')
+plt.ylabel('Normalized Energy (p.u.)')
+plt.title('Ragone Plot - Discharge')
+
+# Grid and legend
+plt.grid(True, which='both', linestyle='--', alpha=0.5)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
