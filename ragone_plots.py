@@ -92,11 +92,11 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(8, 6))
 
 # Plot without self-discharge
-plt.loglog(P_pu, E_without_self_pu,
+plt.semilogxP_pu, E_without_self_pu,
            color='blue', label='Without self-discharge')
 
 # Plot with self-discharge
-plt.loglog(P_pu, E_with_self_pu,
+plt.semilogx(P_pu, E_with_self_pu,
            color='red', label='With self-discharge')
 
 # Labels and title
@@ -147,7 +147,7 @@ E_charge_pu = E_charge / E_nominal_Wh
 plt.figure(figsize=(8, 6))
 
 # Plot charge curve
-plt.loglog(P_pu, E_charge_pu,
+plt.semilogx(P_pu, E_charge_pu,
            color='blue', label='Charge')
 
 # Labels and title
