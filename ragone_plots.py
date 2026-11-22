@@ -110,3 +110,54 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+
+# ==========================================
+# 7. CHARGE PROCESS
+# ==========================================
+
+# Function to calculate the energy stored
+# during the battery charging process
+
+def charge_energy(P):
+
+    E_charge = (U0 * Q0
+                + (U0 / (2 * R0)
+                - np.sqrt(U0**2 / (4 * R0**2) + P / R0))
+                * Q0 * R0)
+
+    # Convert energy from Joules to Wh
+    E_charge_Wh = E_charge / 3600
+
+    return E_charge_Wh
+
+# ==========================================
+# 8. CHARGE RAGONE PLOT - DATA
+# ==========================================
+
+# Calculate the energy stored during charging
+E_charge = charge_energy(P_values)
+
+# Normalize charge energy
+E_charge_pu = E_charge / E_nominal_Wh
+
+# ==========================================
+# 9. CHARGE RAGONE PLOT
+# ==========================================
+
+plt.figure(figsize=(8, 6))
+
+# Plot charge curve
+plt.loglog(P_pu, E_charge_pu,
+           color='blue', label='Charge')
+
+# Labels and title
+plt.xlabel('Normalized Power (p.u.)')
+plt.ylabel('Normalized Energy (p.u.)')
+plt.title('Ragone Plot - Charge')
+
+# Grid and legend
+plt.grid(True, which='both', linestyle='--', alpha=0.5)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
