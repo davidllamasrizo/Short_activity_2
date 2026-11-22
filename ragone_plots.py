@@ -64,7 +64,7 @@ def discharge_energy(P, Rl):
 # ==========================================
 
 # Generate power values (W)
-P_values = np.linspace(0.01, P_max, 500)
+P_values = np.logspace(-2, 0, 500) * P_max
 
 # Calculate discharge energy without self-discharge
 E_without_self = discharge_energy(P_values, Rl_no_self)
