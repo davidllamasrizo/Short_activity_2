@@ -156,7 +156,7 @@ plt.title('Ragone Charge Plot for a Battery')
 
 # Grid and legend
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
-plt.legend()
+
 
 plt.tight_layout()
 plt.show()
