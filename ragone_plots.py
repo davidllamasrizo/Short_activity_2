@@ -100,9 +100,9 @@ plt.semilogx(P_pu, E_with_self_pu,
              color='red', label='With self-discharge')
 
 # Labels and title
-plt.xlabel('Normalized Power (p.u.)')
-plt.ylabel('Normalized Energy (p.u.)')
-plt.title('Ragone Plot - Discharge')
+plt.xlabel(r'Power (P/ (U$_0^2$/4R))')
+plt.ylabel(r'Energy (E/Q$_0$U$_0$)')
+plt.title('Ragone Discharge Plot for a battery')
 
 # Grid and legend
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
@@ -150,9 +150,9 @@ plt.semilogx(P_pu, E_charge_pu,
              color='blue', label='Charge')
 
 # Labels and title
-plt.xlabel('Normalized Power (p.u.)')
-plt.ylabel('Normalized Energy (p.u.)')
-plt.title('Ragone Plot - Charge')
+plt.xlabel(r'Power (P/ (U$_0^2$/4R))')
+plt.ylabel(r'Energy (E/Q$_0$U$_0$)')
+plt.title('Ragone Charge Plot for a Battery')
 
 # Grid and legend
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
